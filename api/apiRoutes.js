@@ -16,18 +16,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/stock', async (req, res) => {
-  const baseUrl = 'https://api.iex.cloud/v1/data/core/historical_prices/';
-
-  const token = process.env.IEXCLOUD_API_KEY;
-
-  const { symbol, range } = req.query;
-
-  const response = await axios.get(`${baseUrl}${symbol}?range=${range}&token=${token}`);
-
-  res.send(response.data);
-});
-
 router.get('/stockQuote', async (req, res) => {
   const baseUrl = 'https://api.iex.cloud/v1/data/core/quote/';
 
