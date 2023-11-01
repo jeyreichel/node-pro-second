@@ -3,6 +3,9 @@ const admin = require('firebase-admin');
 require('dotenv').config()
 const cors = require('cors');
 const apiRouters = require('./api/apiRoutes');
+const sgMail = require('@sendgrid/mail');
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const app = express();
 const port = 5050;
